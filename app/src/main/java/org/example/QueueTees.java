@@ -47,6 +47,10 @@ public class QueueTees<T extends Cutie> {
         return data;
     }
 
+    public boolean isEmpty() {
+        return (head == null);
+    }
+
     public int size() {
         return sizeCount;
     }
