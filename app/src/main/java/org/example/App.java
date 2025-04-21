@@ -4,11 +4,38 @@
 package org.example;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+// Create a bunch of objects that conform to the Cutie interface
+        Puppy puppy = new Puppy();
+        Kitty kitty = new Kitty();
+        PygmyMarmoset marmoset = new PygmyMarmoset();
+        Cutie animal;
+// Create a queue data structure
+        QueueTees<Cutie> queue = new QueueTees<>();
+
+// The size of the queue should equal zero since there are no objects in it
+        System.out.println("\nthe current size of the queue is: " + queue.size());
+
+// Add the cuties to the queue
+        queue.enqueue(puppy);
+        queue.enqueue(kitty);
+        queue.enqueue(marmoset);
+
+// The size of the queue should equal three since there are three objects in it
+        System.out.println("\nthe current size of the queue is: " + queue.size());
+
+// The first dequeue should return the puppy
+        animal = queue.dequeue();
+        System.out.println("\nthe front of the queue is a " + animal.description()
+                + " with a cuteness rating of: " + animal.cutenessRating());
+// The second dequeue should return the kitty
+        animal = queue.dequeue();
+        System.out.println("\nthe front of the queue is a " + animal.description()
+                + " with a cuteness rating of: " + animal.cutenessRating());
+// The first dequeue should return the pygmy marmoset
+        animal = queue.dequeue();
+        System.out.println("\nthe front of the queue is a " + animal.description()
+                + " with a cuteness rating of: " + animal.cutenessRating());
     }
 }
